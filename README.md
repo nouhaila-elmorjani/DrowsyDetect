@@ -1,6 +1,5 @@
 # DrowsyDetect: Real-Time Drowsiness Detection
 
-**Original Author:** Nouhaila  
 A real-time drowsiness detection system for CPAP therapy monitoring, driver fatigue detection, and medical vigilance assessment. Built with MediaPipe, OpenCV, and Streamlit.
 
 ## 🎯 Project Goal
@@ -50,40 +49,38 @@ The system uses MediaPipe's 468-point facial landmark model to extract precise e
 ## 🚀 Quick Start
 
 ### Installation
-```bash
+\`\`\`bash
 # Clone the repository
 git clone https://github.com/YOUR_USERNAME/DrowsyDetect.git
 cd DrowsyDetect
 
 # Install dependencies
 pip install -r requirements.txt
-Usage
-Real-Time Detection (Terminal)
+\`\`\`
 
-bash
+### Usage
+
+**Real-Time Detection (Terminal)**
+\`\`\`bash
 python main.py
-Press q to quit
+\`\`\`
+- Press \`q\` to quit
+- Camera window shows live feed with facial landmarks
+- Alerts appear in red text when drowsiness is detected
+- Audio alert plays when drowsiness threshold is exceeded
 
-Camera window shows live feed with facial landmarks
-
-Alerts appear in red text when drowsiness is detected
-
-Audio alert plays when drowsiness threshold is exceeded
-
-Live Dashboard (Web)
-
-bash
+**Live Dashboard (Web)**
+\`\`\`bash
 streamlit run dashboard_live.py
-Open browser to http://localhost:8501
+\`\`\`
+- Open browser to \`http://localhost:8501\`
+- Click "Start Monitoring" to begin
+- View real-time video feed with overlay
+- See detection history and session statistics
 
-Click "Start Monitoring" to begin
+## 📁 Project Structure
 
-View real-time video feed with overlay
-
-See detection history and session statistics
-
-📁 Project Structure
-text
+\`\`\`
 .
 ├── main.py              
 ├── dashboard_live.py    
@@ -92,10 +89,13 @@ text
 ├── requirements.txt     
 ├── README.md            
 └── music.wav            
-⚙️ Configuration
-Edit config.py to customize detection parameters:
+\`\`\`
 
-python
+## ⚙️ Configuration
+
+Edit \`config.py\` to customize detection parameters:
+
+\`\`\`python
 # Eye closure threshold (0-1 scale)
 EYE_AR_THRESH = 0.25
 
@@ -110,84 +110,70 @@ MOUTH_FRAMES_THRESHOLD = 35
 
 # Camera selection (0=default webcam, 1=external USB, etc.)
 CAMERA_INDEX = 0
-🔄 Key Algorithms
-Eye Aspect Ratio (EAR) Formula
-text
+\`\`\`
+
+## 🔄 Key Algorithms
+
+### Eye Aspect Ratio (EAR) Formula
+\`\`\`
 EAR = (||p2 - p6|| + ||p3 - p5||) / (2 × ||p1 - p4||)
 where p1-p6 are the 6 eye landmark coordinates
-Mouth Aspect Ratio (MAR) Formula
-text
+\`\`\`
+
+### Mouth Aspect Ratio (MAR) Formula
+\`\`\`
 MAR = (||p2 - p10|| + ||p4 - p8||) / (2 × ||p0 - p6||)
 where p0-p10 are the 12 mouth landmark coordinates
-Both use Euclidean distance via SciPy's scipy.spatial.distance.euclidean().
+\`\`\`
 
-📦 Dependencies
-Package	Version	Purpose
-mediapipe	≥0.10.30	Face landmark detection
-opencv-python	≥4.8.1	Video capture and rendering
-streamlit	≥1.28.0	Web dashboard
-numpy	≥1.26.0	Array operations
-scipy	≥1.11.0	Distance calculations
-pygame	≥2.5.0	Audio playback
-🐛 Troubleshooting
-"No module named 'mediapipe'"
-bash
+Both use **Euclidean distance** via SciPy's \`scipy.spatial.distance.euclidean()\`.
+
+## 📦 Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| mediapipe | ≥0.10.30 | Face landmark detection |
+| opencv-python | ≥4.8.1 | Video capture and rendering |
+| streamlit | ≥1.28.0 | Web dashboard |
+| numpy | ≥1.26.0 | Array operations |
+| scipy | ≥1.11.0 | Distance calculations |
+| pygame | ≥2.5.0 | Audio playback |
+
+## 🐛 Troubleshooting
+
+### "No module named 'mediapipe'"
+\`\`\`bash
 pip install mediapipe>=0.10.30
-Camera not opening
-Try CAMERA_INDEX = 1 in config.py
+\`\`\`
 
-Check camera permissions (macOS/Linux)
+### Camera not opening
+- Try \`CAMERA_INDEX = 1\` in config.py
+- Check camera permissions (macOS/Linux)
+- Verify no other app is using the camera
 
-Verify no other app is using the camera
+### "No face detected"
+- Ensure face is well-lit and centered in frame
+- Reduce distance to camera (6 inches - 2 feet optimal)
+- Check camera lens is clean
 
-"No face detected"
-Ensure face is well-lit and centered in frame
-
-Reduce distance to camera (6 inches - 2 feet optimal)
-
-Check camera lens is clean
-
-Model download failed
+### Model download failed
 The model auto-downloads on first run. If it fails:
-
-bash
+\`\`\`bash
 # Manual download
 mkdir -p models
-curl -L -o models/face_landmarker.task \
+curl -L -o models/face_landmarker.task \\
   https://storage.googleapis.com/mediapipe-models/vision/face_landmarker/float16/1/face_landmarker.task
-🔐 Privacy & Data
-All processing happens locally – no cloud uploads
+\`\`\`
 
-No data collection or storage
+## 🔐 Privacy & Data
+- All processing happens **locally** – no cloud uploads
+- No data collection or storage
+- Camera feed never leaves your device
+- Suitable for medical/clinical environments
 
-Camera feed never leaves your device
-
-Suitable for medical/clinical environments
-
-🎓 Use Cases
-Clinical Settings: Monitor patient alertness during CPAP therapy
-
-Transportation: Driver fatigue detection systems
-
-Academic Research: Sleep science studies and attention span measurement
-
-🤝 Contributing
-Improvements and extensions are welcome:
-
-Fork the repository
-
-Create a feature branch
-
-Commit changes with clear messages
-
-Submit a pull request
-
-🙏 Acknowledgments
-MediaPipe for facial detection
-
-OpenCV for image processing
-
-Streamlit for user interface
-
+## 🎓 Use Cases
+- **Clinical Settings**: Monitor patient alertness during CPAP therapy
+- **Transportation**: Driver fatigue detection systems
+- **Academic Research**: Sleep science studies and attention span measurement
 
 
