@@ -1,0 +1,62 @@
+# DrowsyDetect - CPAP Therapy Monitoring
+# Production-Ready Requirements
+# Python 3.8+ (tested on 3.13)
+# Last Updated: December 2024
+
+# ============================================================================
+# Computer Vision and Image Processing
+# ============================================================================
+
+# OpenCV for video capture and frame display
+opencv-python>=4.8.1
+
+# MediaPipe for facial landmark detection
+# Version 0.10.30+ uses the modern Tasks API (mp.solutions is deprecated)
+# The face_landmarker.task model will be automatically downloaded by main.py
+mediapipe>=0.10.30
+
+# Numerical computing
+numpy>=1.26.0
+
+# Scientific computing for distance calculations
+scipy>=1.11.0
+
+# ============================================================================
+# Web Dashboard and UI
+# ============================================================================
+
+# Streamlit for web dashboard interface
+streamlit>=1.28.0
+
+# Streamlit charting library
+streamlit-echarts>=0.4.0
+
+# ============================================================================
+# Data Processing and Analysis
+# ============================================================================
+
+# Pandas for data manipulation and CSV logging
+pandas>=2.0.0
+
+# ============================================================================
+# Audio and Alerts
+# ============================================================================
+
+# Pygame for audio alert playback
+pygame>=2.5.0
+
+# Audio Alerts
+pygame>=2.5.0
+
+# Additional utilities
+Pillow>=10.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Development dependencies (optional)
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Note: If using MediaPipe Tasks API, place face_landmarker.task in models/ or
+# set MP_FACE_LANDMARKER_MODEL environment variable. See SETUP.md for details.

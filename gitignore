@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+
+# IDEs
+.idea/
+.vscode/
+
+# Model files 
+models/face_landmarker.task
+
+# Session logs
+session_logs/
+
+# OS
+.DS_Store
+
+# Temporary files
+*.swp
+*.swo
